@@ -20,7 +20,7 @@ public class ClientController {
     @Autowired private ClientService clientService;
 
     @PostMapping("/create")
-    public ResponseEntity<Object> agregarUsuario(Client client){
+    public ResponseEntity<Object> create(@RequestBody Client client){
        return clientService.create(client);
     }
     @GetMapping("/list")
@@ -60,4 +60,6 @@ public class ClientController {
     public void delete(@PathVariable("id") Integer id){
         clientService.delete(id);
     }
+
+
 }

@@ -21,9 +21,7 @@ public class Client implements Serializable {
     private String email;
 
 
-    @OneToOne
-    @JoinColumn(name="communication_id")
-    private Communication communication;
+
 
     public String getDir() {
         return dir;
@@ -49,13 +47,6 @@ public class Client implements Serializable {
         this.city = city;
     }
 
-    public Communication getCommunication() {
-        return communication;
-    }
-
-    public void setCommunication(Communication communication) {
-        this.communication = communication;
-    }
 
     public int getId() {
         return id;

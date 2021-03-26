@@ -24,6 +24,7 @@ class TelecomunicacionesApplicationTests {
         us.setNombre("romerome");
         us.setId(3);
         us.setClave(passwordEncoder.encode("1234"));
+        us.setRol("ADMIN");
         Usuario retorno = dao.save(us);
         assert (retorno.getClave().equalsIgnoreCase(us.getClave()));
     }

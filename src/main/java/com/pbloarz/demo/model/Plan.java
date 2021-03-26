@@ -16,11 +16,6 @@ public class Plan implements Serializable {
     private String characeristies;
     private double price;
 
-    @OneToOne
-    @JoinColumn(name="communication_id")
-    private Communication communication;
-
-
 
     public int getId() {
         return id;
@@ -62,13 +57,6 @@ public class Plan implements Serializable {
         this.price = price;
     }
 
-    public Communication getCommunication() {
-        return communication;
-    }
-
-    public void setCommunication(Communication communication) {
-        this.communication = communication;
-    }
 
 
 }

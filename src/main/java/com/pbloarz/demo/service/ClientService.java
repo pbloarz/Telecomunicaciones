@@ -21,14 +21,13 @@ import java.util.Optional;
 public class ClientService {
     @Autowired
     private ClientDao clientDao;
-    @Autowired
-    private BCryptPasswordEncoder encoder;
 
-    public ResponseEntity<Object> create(Client client){
+
+    public ResponseEntity<Object> create(@RequestBody Client client){
         ResponseEntity<Object> respuesta;
         try {
             clientDao.save(client);
-            RespuestaPersonalizada res = new RespuestaPersonalizada("Creacion usuario Exitosa", HttpStatus.OK);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("CREACION CON EXITO", HttpStatus.OK);
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(res,HttpStatus.OK);
         } catch (Exception e) {
@@ -74,6 +73,9 @@ public class ClientService {
     }
     public void delete(@PathVariable("id") Integer id){
         clientDao.deleteById(id);
+    }
+    public void crear(@RequestBody Client client){
+        clientDao.save(client);
     }
 
 }

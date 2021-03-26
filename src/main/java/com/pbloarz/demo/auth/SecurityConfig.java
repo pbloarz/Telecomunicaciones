@@ -23,11 +23,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	private UsuarioService usuarioService;
+	@Autowired
+	private BCryptPasswordEncoder brycrp;
 	
 	@Override
 	@Autowired
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(this.userDetailsService()).passwordEncoder(passwordEncoder());
+		auth.userDetailsService(this.userDetailsService()).passwordEncoder(brycrp);
 	}
 	
 	@Bean
