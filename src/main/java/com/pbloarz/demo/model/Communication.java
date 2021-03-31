@@ -1,26 +1,46 @@
 package com.pbloarz.demo.model;
 
-import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+
+import javax.persistence.*;
 
 @Entity
 public class Communication {
 
-    private Long id;
-    @OneToOne(mappedBy = "communication")
-    private Client client;
-    @OneToOne(mappedBy = "communication")
-    private Plan plan;
+    private int id;
 
-    public void setId(Long id) {
+
+    public void setId(int id) {
         this.id = id;
     }
 
     @Id
-    public Long getId() {
+    public int getId() {
         return id;
     }
+
+
+    private Client cliente;
+
+    @OneToOne(optional = false)
+    public Client getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Client cliente) {
+        this.cliente = cliente;
+    }
+
+    private Plan plan;
+
+    @OneToOne(optional = false)
+    public Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Plan plan) {
+        this.plan = plan;
+    }
 }
+
+

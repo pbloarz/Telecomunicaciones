@@ -6,16 +6,11 @@ import com.pbloarz.demo.response.RespuestaPersonalizada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import com.pbloarz.demo.model.ClientDTO;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -23,7 +18,7 @@ public class ClientService {
     private ClientDao clientDao;
 
 
-    public ResponseEntity<Object> create(@RequestBody Client client){
+    public ResponseEntity<Object> create(@RequestBody ClientDTO client){
         ResponseEntity<Object> respuesta;
         try {
             clientDao.save(client);

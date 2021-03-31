@@ -1,17 +1,6 @@
-package com.pbloarz.demo.model;
-
-import javax.persistence.*;
-import java.io.Serializable;
+public class ClientDTO {
 
 
-@Entity
-public class Client implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
     private int id;
     private String rut;
     private String firstName;
@@ -20,8 +9,7 @@ public class Client implements Serializable {
     private String city;
     private String dir;
     private String email;
-
-
+    
     public String getDir() {
         return dir;
     }
@@ -86,6 +74,5 @@ public class Client implements Serializable {
     public void setCellphone(String cellphone) {
         this.cellphone = cellphone;
     }
-
 
 }

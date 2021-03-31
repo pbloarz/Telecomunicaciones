@@ -41,5 +41,12 @@ public class JwtConfig {
             + "9QIDAQAB\r\n"
             + "-----END PUBLIC KEY-----";
 
+
+
+	JwtConfig() {
+                throw new IllegalStateException("Utility class");
+	}
+
+
 }
 

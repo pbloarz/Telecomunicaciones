@@ -10,8 +10,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
-import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
-import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -24,8 +22,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers(HttpMethod.GET,"/api/plan","/api/client","/api/communication").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/plan/create","/oauth/token").permitAll()
+                .authorizeRequests().antMatchers(HttpMethod.GET,"/oauth/token","/oauth/autorize**","/publica").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/plan/listAll","/api/client/**").permitAll()
                 .and().authorizeRequests()
                 .and().cors().configurationSource(corsConfigurationSource());
     }

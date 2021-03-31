@@ -11,7 +11,6 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.stereotype.Component;
 
 import com.pbloarz.demo.model.Usuario;
-import com.pbloarz.demo.repository.UsuarioDao;
 import com.pbloarz.demo.service.UsuarioService;
 
 @Component
